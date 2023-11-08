@@ -1,0 +1,36 @@
+<body>
+
+
+  <div class="container">
+    <h2>E- Receipt</h2>
+  <form [formGroup]="ereceiptForm" >
+    <table *ngFor="let details of userDetails">
+      <tr>
+        <td>Student Name</td>
+        <td>: {{ details.username }}</td>
+      </tr>
+      <tr>
+        <td>Roll Number</td>
+        <td>: {{ details.rollnumber }}</td>
+      </tr>
+      <tr>
+        <td>Course</td>
+        <td>: {{ details.department }}</td>
+      </tr>
+      <tr>
+        <td>Amount Paid</td>
+        <td>: {{ pay }}</td>
+      </tr>
+      <tr *ngIf="!exam">
+        <td>Balance Amount</td>
+        <td>: {{details.balancecollegefee}}</td>
+      </tr>
+      <tr>
+        <td>Payment Mode</td>
+        <td>: Online</td>
+      </tr>
+    </table>
+
+   </form>
+  </div>
+  </body>

@@ -1,0 +1,79 @@
+<body>
+  <div style="margin-top: 10%;margin-left: -10%;">
+  <ng-container  *ngFor="let details of userDetails">
+  <div>
+    <table class="Student_info" >
+        <h4 style="margin-left: 250px; margin-right:-200px"><u>Teacher's Information</u></h4>
+        <tr>
+            <td>Name</td>
+            <td>: {{details.name}}</td>
+        </tr>
+        <tr>
+            <td>Teacher ID</td>
+            <td>:  {{details.teacherid}}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>:  {{details.department}}</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>:  {{details.dob}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>:  {{details.gender}}</td>
+        </tr>
+        <tr>
+            <td>Nationality</td>
+            <td>:  {{details.nationality}}</td>
+        </tr>
+    </table>
+  </div>
+<br>
+<br>
+  <div class="contact_info">
+    <table>
+        <h4 style="margin-left: 250px; margin-right:-200px"><u>Contact's Information</u></h4>
+        <tr>
+            <td>Home Address</td>
+            <td>:  {{details.address}}</td>
+        </tr>
+        <tr>
+            <td>Town/City</td>
+            <td>:  {{details.city}}</td>
+        </tr>
+        <tr>
+            <td>
+                District
+            </td>
+            <td>:  {{details.district}}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>:  {{details.state}}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>:  {{details.country}}</td>
+        </tr>
+        <tr>
+            <td>
+                Phone Number
+            </td>
+            <td>:  {{details.phonenumber}}</td>
+        </tr>
+    <tr>
+        <td>E-mail</td>
+        <td>:  {{details.email}}</td>
+    </tr>
+    </table>
+  </div>
+<br>
+<br>
+  <div class="Edit">
+      <button style="background-color:green; color:white;  border-radius: 10px;"><a routerLink="Edit" >Edit My Details</a></button>
+  </div>
+</ng-container>
+</div>
+</body>

@@ -1,0 +1,57 @@
+.container
+{
+  width: 100%;
+  margin-top: 5%;
+
+  scroll-behavior: smooth;
+}
+.container1
+{
+  width: 100%;
+  margin-top: 5%;
+  margin-left: 2%;
+  scroll-behavior: smooth;
+}
+.header
+{
+  text-align: center;
+
+  padding: 10px;
+  background-color: #44AC33;;
+}
+table{
+  margin: auto;
+  padding: 30px;
+}
+tr,td
+{
+  padding: 15px;
+  text-align: justify;
+}
+pre
+{
+  margin-left: 25%;
+}
+.footer{
+  background-color: #44AC33;
+  padding: 10px;
+}
+.details table{
+  margin: 0;
+  padding: 20px;
+  border-collapse: collapse;
+}
+.details td,th{
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+button{
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  width: 10%;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

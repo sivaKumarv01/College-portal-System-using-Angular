@@ -1,0 +1,44 @@
+<body>
+    <div *ngIf="userType==='student'">
+  <div class="course-container" >
+    <h2>Avaliable Courses:</h2>
+    <br>
+    <div class="course">
+    <div *ngFor="let course of coursesDetails">
+    <div class="card">
+      <div class="img">
+      <img  src="{{course.image}}" alt="Course Image">
+      </div>
+      <h2 >{{course.coursename}}</h2>
+      <p>{{course.courseDescription}}</p>
+    <div class="btn">
+      <button class="enroll-button" (click)="toEnrollCourse(course.id)">Enroll Now</button>
+    </div>
+    </div>
+  </div>
+    </div>
+  </div>
+ <app-EnrollCourses></app-EnrollCourses>
+  </div>
+  <div *ngIf="userType==='teacher' ||userType==='admin'">
+    <div class="course-container" >
+      <h2>Avaliable Courses:</h2>
+      <br>
+      <div class="course">
+      <div *ngFor="let course of coursesDetails">
+      <div class="card">
+        <div class="img">
+        <img  src="{{course.image}}" alt="Course Image">
+        </div>
+        <h2>{{course.coursename}}</h2>
+        <p>{{course.courseDescription}}</p>
+      <div class="btn2">
+        <a [routerLink]="course.link" class="enroll-button">open</a>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+
+  </body>

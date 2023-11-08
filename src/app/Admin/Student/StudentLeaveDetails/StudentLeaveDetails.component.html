@@ -1,0 +1,22 @@
+<body>
+
+  <div class="record">
+
+    <table>
+    <tr>
+      <th>S.No</th>
+      <th>Student Name</th>
+      <th>Reason to Leave</th>
+      <th>leave Dates</th>
+      <th>Number of days</th>
+    </tr>
+      <tr *ngFor="let leavedetails of leave | reverse let i=index">
+          <td>{{getIndex(i)}}</td>
+          <td>{{leavedetails.userName}}</td>
+          <td>{{leavedetails.reason}}</td>
+          <td>{{leavedetails.startDate|date:'dd/MM/yyy'}} to {{leavedetails.endDate |date:'dd/MM/yyy'}}</td>
+          <td>{{leavedetails.leaveDays}}</td>
+        </tr>
+      </table>
+      </div>
+    </body>

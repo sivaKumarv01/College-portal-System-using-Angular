@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="box-container">
+
+      <div class="box">
+
+          <h3>View studentDetails</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+         <button (click)="details()">View</button>
+      </div>
+
+      <div class="box">
+
+          <h3>Add Student</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+          <button (click)="show()" >Add</button>
+      </div>
+
+      <div class="box">
+
+          <h3>Delete Student</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+         <button (click)="delete()">Delete</button>
+      </div>
+      <div class="box">
+
+        <h3>view Student's Attendance</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+        <button routerLink="/AttendanceDetails" >View</button>
+    </div>
+    <div class="box">
+      <h3>view Leave Details</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+      <button routerLink="/studentLeaveDetails" >view</button>
+  </div>
+  </div>
+</div>
+
+<div  *ngIf="status" >
+  <form class="modal-content" >
+    <div class="container" [formGroup]="studentForm">
+      <h1>Add Student User</h1>
+      <hr>
+      <label for="text"><b>Student Name</b></label>
+      <input type="text" placeholder="Enter Student Name" formControlName="username" required>
+      <div *ngIf="studentForm.controls.username.invalid && (studentForm.controls.username.dirty || studentForm.controls.username.touched)">
+        <small *ngIf="studentForm.controls.username.errors.required">*Username is required.</small>
+        <small *ngIf="studentForm.controls.username.errors.pattern">
+          *Username should contain only alphabets.
+        </small>
+      </div>
+        <label for=""><b>RollNumber</b></label>
+      <input type="text" placeholder="Enter RollNumber" formControlName="rollnumber" name="email" required>
+      <div *ngIf="studentForm.controls.rollnumber.invalid && (studentForm.controls.rollnumber.dirty || studentForm.controls.rollnumber.touched)">
+        <small *ngIf="studentForm.controls.rollnumber.errors.required">*Roll Number is required.</small>
+        <small *ngIf="studentForm.controls.rollnumber.errors.pattern">
+          *Roll Number should contain a combination of numbers and alphabets with a maximum length of 7.
+        </small>
+      </div>
+      <label for=""><b>Degree and Branch</b></label>
+      <select formControlName="department">
+        <option *ngFor="let course of dept" [value]="course">{{course}}</option></select>
+        <div *ngIf="studentForm.controls.department.invalid && (studentForm.controls.department.dirty || studentForm.controls.department.touched)">
+          <small *ngIf="studentForm.controls.department.errors.required">*Degree and Branch is required.</small>
+          </div>
+      <label for=""><b>Year</b></label>
+      <br>
+      <select   formControlName="year"  style="width: 80%">
+        <option value="1st-year"><p>1st-Year</p></option>
+        <option value="2nd-year"><p>2nd-Year</p></option>
+        <option value="3rd-year"><p>3rd-Year</p></option>
+        <option value="4th-year"><p>4th-Year</p></option>
+    </select>
+    <div *ngIf="studentForm.controls.year.invalid && (studentForm.controls.year.dirty || studentForm.controls.year.touched)">
+      <small *ngIf="studentForm.controls.year.errors.required">*Year is required.</small>
+      </div>
+    <br>
+      <label for=""><b>PhoneNumber</b></label>
+      <input type="tel" placeholder="Enter PhoneNumber" formControlName="phonenumber" required>
+      <div *ngIf="studentForm.controls.phonenumber.invalid && (studentForm.controls.phonenumber.dirty || studentForm.controls.phonenumber.touched)">
+        <small *ngIf="studentForm.controls.phonenumber.errors.required">*Phone Number is required.</small>
+        <small *ngIf="studentForm.controls.phonenumber.errors.pattern">
+          *Phone Number should contain 10 digits.
+        </small>
+      </div>
+      <label for="text"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" formControlName="email" required>
+      <div *ngIf="studentForm.controls.email.invalid && (studentForm.controls.email.dirty || studentForm.controls.email.touched)">
+        <small *ngIf="studentForm.controls.email.errors.required">*Email is required.</small>
+        <small *ngIf="studentForm.controls.email.errors.pattern">
+          *Email should be a valid gmail address.
+        </small>
+      </div>
+      <div class="clearfix">
+        <pre><button type="button" (click)="show()" class="cancelbtn">Cancel</button>          <button type="submit" (click)="onSubmit()" [disabled]="!studentForm.valid" class="btn">Add</button></pre>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="view">
+  <div class="container">
+    <div class="StudentDetails"  >
+      <h2>Student's Information</h2>
+      <table style=" font-size: small;">
+        <tr>
+          <th>Student Name</th>
+          <th>RollNumber</th>
+          <th>Father's Name</th>
+          <th>Department</th>
+          <th>Year</th>
+          <th>DOB</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Parent's PhoneNumber</th>
+      </tr>
+        <tr *ngFor="let details of studentDetails">
+            <td>{{details.username}}</td>
+            <td>{{details.rollnumber}}</td>
+            <td>{{details.fathername}}</td>
+            <td>{{details.department}}</td>
+            <td>{{details.year}}</td>
+            <td>{{details.dob}}</td>
+            <td>{{details.gender}}</td>
+            <td>{{details.email}}</td>
+            <td>{{details.address}},{{details.city}},{{details.district}} District,{{details.state}}</td>
+            <td>{{details.phonenumber}}</td>
+            <td>{{details.parentphonenumber}}</td>
+        </tr>
+        </table>
+  </div>
+  </div>
+
+</div>
+<div *ngIf="remove">
+<form class="modal-content" >
+  <div class="container" [formGroup]="studentForm">
+    <h1>Delete Student User</h1>
+    <hr>
+    <label for="text"><b>Student Name</b></label>
+    <input type="text" placeholder="Enter Student Name" formControlName="username" required>
+    <div *ngIf="studentForm.controls.username.invalid && (studentForm.controls.username.dirty || studentForm.controls.username.touched)">
+      <small *ngIf="studentForm.controls.username.errors.required">*Username is required.</small>
+      <small *ngIf="studentForm.controls.username.errors.pattern">
+        *Username should contain only alphabets.
+      </small>
+    </div>
+      <label for=""><b>RollNumber</b></label>
+      <input type="text" placeholder="Enter RollNumber" formControlName="rollnumber" name="email" required>
+      <div *ngIf="studentForm.controls.rollnumber.invalid && (studentForm.controls.rollnumber.dirty || studentForm.controls.rollnumber.touched)">
+        <small *ngIf="studentForm.controls.rollnumber.errors.required">*Roll Number is required.</small>
+        <small *ngIf="studentForm.controls.rollnumber.errors.pattern">
+          *Roll Number should contain a combination of numbers and alphabets with a maximum length of 7.
+        </small>
+      </div>
+    <div class="clearfix">
+      <pre><button type="button" (click)="delete()" class="cancelbtn">Cancel</button>          <button type="submit" (click)="onDelete()" [disabled]="!studentForm.valid" class="btn">Delete</button></pre>
+    </div>
+  </div>
+</form>
+</div>
+
+
+

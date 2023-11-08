@@ -1,0 +1,36 @@
+
+<nav class="sidebar">
+  <ul class="menu">
+    <li><a routerLink="home"><i class="fa fa-home"></i>&nbsp;  Home </a></li>
+
+    <ng-container *ngIf="userType==='student'">
+      <li><a routerLink="Myprofile"><i class="fa fa-user" ></i>&nbsp; My Profile</a></li>
+    <li><a routerLink="Courses"><i class="fa fa-book" ></i>&nbsp; Course</a></li>
+    <li><a routerLink="Applyleave"><i class="fa fa-file"></i>&nbsp; Apply leave</a></li>
+    <li><a routerLink="AttendanceRecord"> <i class="fa fa-id-card" ></i>&nbsp; Attendance</a></li>
+    <li><a routerLink="payfee"><i class="fa fa-money"></i>&nbsp; Fee Payment</a></li>
+    <div><li><a routerLink="ChangePassword"><i class="fa fa-key"></i>&nbsp; Change Password</a></li></div>
+    </ng-container>
+    <ng-container *ngIf="userType==='teacher'" >
+      <li><a routerLink="myProfile"><i class="fa fa-user " ></i>&nbsp; My Profile</a></li>
+      <li><a routerLink="Courses"><i class="fa fa-book " ></i>&nbsp; Course</a></li>
+        <li><a routerLink="ApplyLeave"><i class="fa fa-file"></i>&nbsp; Apply leave</a></li>
+        <li><a routerLink="AttendanceDetails"><i class="fa fa-id-card" ></i>&nbsp; Student's Attendance </a></li>
+        <li><a routerLink="StudentDetails"><i class="fa fa-users" ></i>&nbsp; Student Details</a></li>
+        <div><li><a routerLink="ChangePassword"><i class="fa fa-key"></i>&nbsp; Change Password
+        </a></li></div>
+    </ng-container>
+    <ng-container *ngIf="userType==='admin'" >
+      <li><a routerLink="student"><i class="fa fa-users" ></i>&nbsp; Student</a></li>
+      <li><a routerLink="teacher"><i class="fa fa-users" ></i>&nbsp; Teacher</a></li>
+      <li><a routerLink="Feedetails"><i class="fa fa-money"></i>&nbsp;Fee Details</a></li>
+      <li><a routerLink="password"><i class="fa fa-key"></i>Password Request</a></li>
+      </ng-container>
+  </ul>
+</nav>
+<div class="content">
+<router-outlet>
+</router-outlet>
+</div>
+
+

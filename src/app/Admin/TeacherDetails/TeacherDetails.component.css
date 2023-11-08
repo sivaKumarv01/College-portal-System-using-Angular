@@ -1,0 +1,30 @@
+table,td{
+  padding: 10px;
+
+}
+th,td{
+ border: 1px solid black;
+}
+th{
+  background-color: #44AC44;
+  color: white;
+}
+td
+{
+  text-align: center;
+}
+table{
+  border-collapse: collapse;
+  margin:auto ;
+
+}
+.StudentDetails{
+  text-align: center;
+  font-size: 16px ;
+  font-family:  'Times New Roman', serif;
+}
+.container{
+  margin-top: 5%;
+
+  scroll-behavior: smooth;
+}

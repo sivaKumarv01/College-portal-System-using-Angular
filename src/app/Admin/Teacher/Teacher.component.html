@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="box-container">
+      <div class="box">
+          <h3>View  Teacher Details</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+         <button (click)="details()">View</button>
+      </div>
+      <div class="box">
+          <h3>Add Teacher user</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+          <button (click)="show()" >Add</button>
+      </div>
+      <div class="box">
+          <h3>Delete Teacher user</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+         <button (click)="delete()">Delete</button>
+      </div>
+      <div class="box">
+        <h3>view Teacher Leave</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+       <button (click)="leaveDetails()">View</button>
+    </div>
+  </div>
+</div>
+<div  *ngIf="status" >
+  <form class="modal-content" >
+    <div class="container" [formGroup]="teacherForm">
+      <h1>Add Teacher User</h1>
+      <hr>
+      <label for="text"><b>Teacher Name</b></label>
+      <input type="text" placeholder="Enter Teacher Name" formControlName="name" required>
+      <div *ngIf="teacherForm.controls.name.invalid && (teacherForm.controls.name.dirty || teacherForm.controls.name.touched)">
+        <small *ngIf="teacherForm.controls.name.errors.required">*Username is required.</small>
+        <small *ngIf="teacherForm.controls.name.errors.pattern">
+          *Username should contain only alphabets.
+        </small>
+      </div>
+        <label for=""><b>Teacher Id</b></label>
+      <input type="text" placeholder="Enter TeacherId" formControlName="teacherid"  required>
+      <div *ngIf="teacherForm.controls.teacherid.invalid && (teacherForm.controls.teacherid.dirty || teacherForm.controls.teacherid.touched)">
+        <small *ngIf="teacherForm.controls.teacherid.errors.required">*Teacher ID is required.</small>
+        <small *ngIf="teacherForm.controls.teacherid.errors.pattern">
+          *Teacher ID should contain only numbers with a maximum length of 3.
+        </small>
+      </div>
+      <label for=""><b>Department</b></label>
+      <select formControlName="department">
+        <option *ngFor="let department of dept" [value]="department">{{department}}</option></select>
+        <div *ngIf="teacherForm.controls.department.invalid && (teacherForm.controls.department.dirty || teacherForm.controls.department.touched)">
+          <small *ngIf="teacherForm.controls.department.errors.required">*Phone Number is required.</small>
+          </div>
+      <label for=""><b>PhoneNumber</b></label>
+      <input type="tel" placeholder="Enter PhoneNumber" formControlName="phonenumber" required>
+      <div *ngIf="teacherForm.controls.phonenumber.invalid && (teacherForm.controls.phonenumber.dirty || teacherForm.controls.phonenumber.touched)">
+        <small *ngIf="teacherForm.controls.phonenumber.errors.required">*Phone Number is required.</small>
+        <small *ngIf="teacherForm.controls.phonenumber.errors.pattern">
+          *Phone Number should contain 10 digits.
+        </small>
+      </div>
+      <label for="text"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" formControlName="email" required>
+      <div *ngIf="teacherForm.controls.email.invalid && (teacherForm.controls.email.dirty || teacherForm.controls.email.touched)">
+        <small *ngIf="teacherForm.controls.email.errors.required">*Email is required.</small>
+        <small *ngIf="teacherForm.controls.email.errors.pattern">
+          *Email should be a valid Gmail address.
+        </small>
+      </div>
+      <div class="clearfix">
+        <pre><button type="button" (click)="show()" class="cancelbtn">Cancel</button>          <button type="submit" (click)="onSubmit()" [disabled]="!teacherForm.valid" class="btn">Add</button></pre>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="view">
+<app-TeacherDetails></app-TeacherDetails>
+</div>
+<div *ngIf="remove">
+<form class="modal-content" >
+  <div class="container" [formGroup]="teacherForm">
+    <h1>Delete Teacher User</h1>
+    <hr>
+    <label for="text"><b>Teacher Name</b></label>
+    <input type="text" placeholder="Enter Teacher Name" formControlName="name" required>
+    <div *ngIf="teacherForm.controls.name.invalid && (teacherForm.controls.name.dirty || teacherForm.controls.name.touched)">
+      <small *ngIf="teacherForm.controls.name.errors.required">*Username is required.</small>
+      <small *ngIf="teacherForm.controls.name.errors.pattern">
+        *Username should contain only alphabets.
+      </small>
+    </div>
+      <label for=""><b>Teacher Id</b></label>
+      <input type="text" placeholder="Enter Teacher Id" formControlName="teacherid" name="email" required>
+      <div *ngIf="teacherForm.controls.teacherid.invalid && (teacherForm.controls.teacherid.dirty || teacherForm.controls.teacherid.touched)">
+        <small *ngIf="teacherForm.controls.teacherid.errors.required">*Teacher ID is required.</small>
+        <small *ngIf="teacherForm.controls.teacherid.errors.pattern">
+          *Teacher ID should contain only numbers with a maximum length of 3.
+        </small>
+      </div>
+    <div class="clearfix">
+      <pre><button type="button" (click)="delete()" class="cancelbtn">Cancel</button>          <button type="submit" (click)="onDelete()" [disabled]="!teacherForm.valid" class="btn">Delete</button></pre>
+    </div>
+  </div>
+</form>
+</div>
+<div *ngIf="leave">
+  <div class="record">
+
+    <table>
+    <tr>
+      <th>S.No</th>
+      <th>Student Name</th>
+      <th>Reason to Leave</th>
+      <th>leave Dates</th>
+      <th>Number of days</th>
+    </tr>
+        <tr *ngFor="let leavedetails of teacherLeave | reverse let i=index">
+          <td>{{getIndex(i)}}</td>
+          <td>{{leavedetails.userName}}</td>
+          <td>{{leavedetails.reason}}</td>
+          <td>{{leavedetails.startDate|date:'dd/MM/yyy'}} to {{leavedetails.endDate |date:'dd/MM/yyy'}}</td>
+          <td>{{leavedetails.leaveDays}}</td>
+        </tr>
+    </table>
+      </div>
+</div>
+
+

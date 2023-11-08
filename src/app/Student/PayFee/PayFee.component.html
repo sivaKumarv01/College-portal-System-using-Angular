@@ -1,0 +1,42 @@
+<body>
+
+
+  <div>
+    <h2>Fee Details</h2>
+    <table>
+      <tbody  *ngFor="let details of userDetails">
+      <tr><td>Student Name</td>
+      <td>:</td>
+      <td>{{details.username}}</td></tr>
+      <tr><td>Roll Number</td>
+        <td>:</td>
+        <td>{{details.rollnumber}}</td>
+      </tr>
+      <tr><td>Department</td>
+        <td>:</td>
+        <td>{{details.department}}</td>
+      </tr>
+      <tr><td>Email</td>
+        <td>:</td>
+        <td>{{details.email}}</td>
+      </tr>
+      <tr><td>college Fee</td>
+        <td>:</td>
+        <td>{{details.collegefee}}</td>
+      </tr>
+      <tr><td>Balance college Fee</td>
+        <td>:</td>
+        <td *ngIf="details.balancecollegefee!==0">{{details.balancecollegefee}}</td>
+        <td *ngIf="details.balancecollegefee===0"><p><b>Paid</b></p></td>
+        <td *ngIf="details.balancecollegefee!==0"> <button type="button" (click)="toPayCollegeFee()">Pay</button></td>
+      </tr>
+      <tr><td>Exam Fee</td>
+        <td>:</td>
+        <td *ngIf="details.examfee!==0">{{details.examfee}}</td>
+        <td *ngIf="details.examfee==0"><p><b>Paid</b></p></td>
+        <td *ngIf="details.examfee!==0"> <button type="button" (click)="toPayExamFee()">Pay</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  </body>

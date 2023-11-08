@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="StudentDetails"  >
+    <h2>Student's Information</h2>
+    <table style=" font-size: small;">
+      <tr>
+        <th>Teacher Name</th>
+        <th>Teacher id</th>
+        <th>Department</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Nationality</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Salary</th>
+    </tr>
+      <tr *ngFor="let details of teacherDetails">
+          <td>{{details.name}}</td>
+          <td>{{details.teacherid}}</td>
+          <td>{{details.department}}</td>
+          <td>{{details.dob}}</td>
+          <td>{{details.gender}}</td>
+          <td>{{details.nationality}}</td>
+          <td>{{details.email}}</td>
+          <td>{{details.address}},{{details.city}},{{details.district}} District,{{details.state}}</td>
+          <td>{{details.phonenumber}}</td>
+          <td>{{details.salary}}</td>
+      </tr>
+      </table>
+</div>
+</div>

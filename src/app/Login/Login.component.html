@@ -1,0 +1,59 @@
+<body>
+  <div class="containerbody">
+    <div class="FormContainer" align="center" >
+      <form   method="post" #registerForm="ngForm">
+        <h2 style="text-align:center;color:#44AC33;">Login</h2>
+
+        <label><i class="fa fa-user"></i>&nbsp;UserName:&#9;</label>
+        <input type="text"   #uname=ngModel name="username" [(ngModel)]="username" placeholder="Enter username" required>
+        <div *ngIf="uname.errors && (uname.dirty || uname.touched)">
+          <small [hidden]="!uname.errors['required']" style="color:red; margin-left: 15%;">*Please enter username</small>
+          <small [hidden]="!uname.errors['minlength']" >Please enter username with at least 3 characters</small>
+        </div>
+        <br>
+        <label><i class="fa fa-key"></i>&nbsp;Password:&#9;</label>
+        <input type="password"  #upassword=ngModel name="password" [(ngModel)]="password" placeholder="Enter password" required>
+        <div *ngIf="upassword.errors && (upassword.dirty||upassword.touched)" >
+          <small [hidden]="!upassword.errors['required']" style="color:red;margin-left: 15%;">*Please enter password</small>
+          <small [hidden]="!upassword.errors['minlength']" style="color:red;margin-left: 15%;">Please enter password with atleast 3 characters</small>
+        </div>
+        <br>
+        <label for="user-type"><i class="fa fa-users"></i>&nbsp;User Type:&#9;</label>
+        <select  #utype=ngModel name="usertype" [(ngModel)]="usertype">
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+      <div *ngIf="utype.errors && (utype.dirty||utype.touched)" >
+        <small [hidden]="!utype.errors['required']" style="color: red;">Please enter username</small>
+        </div>
+        <br>
+        <br>
+        <button (click)="onSubmit()">Login</button><br><br>
+        <a (click)="openForgetPassword()" class="forgotPassword">Forget password</a>
+      </form>
+    </div>
+  </div>
+  </body>
+
+  <div *ngIf="showForgetPasswordModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeForgetPassword()">&times;</span>
+      <form  [formGroup]="userForm">
+        <label for="name">Username:
+        <input type="text"  formControlName="username"></label>
+        <div *ngIf="userForm.get('username').invalid && (userForm.get('username').dirty || userForm.get('username').touched)">
+          <small *ngIf="userForm.get('username').errors?.required">*Username is required.</small>
+          <small *ngIf="userForm.get('username').errors?.minlength">*Username should be at least 5 characters long.</small>
+        </div>
+        <br>
+      <label for="email">Email:
+      <input type="text" formControlName="email" style="margin-left: 7%;"></label>
+      <div *ngIf="userForm.get('email').invalid && (userForm.get('email').dirty || userForm.get('email').touched)">
+        <small *ngIf="userForm.get('email').errors?.required">*Email is required.</small>
+        <small *ngIf="userForm.get('email').errors?.email">*Invalid email format.</small>
+      </div>
+      <br>
+      <button (click)="submitEmail()">Submit</button>
+    </form>
+    </div>
+  </div>

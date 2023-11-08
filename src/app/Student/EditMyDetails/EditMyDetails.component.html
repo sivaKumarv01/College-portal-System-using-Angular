@@ -1,0 +1,85 @@
+<body>
+<div class="container">
+  
+<div class="Edit-container">
+  <form  [formGroup]="studentForm">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>:  <input type="text" formControlName="username" required style="width: 80%"></td>
+                <td></td>
+                  <td>Home Address</td>
+                <td>:  <input type="text" formControlName="address" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>Degree and branch</td>
+                <td>:  <input type="text" formControlName="branch" required style="width: 80%"></td>
+               <td></td>
+               <td>Town/City</td>
+                <td>:  <input type="text"  formControlName="city" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>:  <select   formControlName="year"  style="width: 80%">
+                    <option value="1 st year"><p>1-<sup>st</sup>Year</p></option>
+                    <option value="2 nd year"><p>2-<sup>nd</sup>Year</p></option>
+                    <option value="3 rd year"><p>3-<sup>rd</sup>Year</p></option>
+                    <option value="4 th year"><p>4-<sup>th</sup>Year</p></option>
+                </select></td>
+                <td></td>
+                 <td>
+                    District
+                </td>
+                <td>:  <input type="text" formControlName="district" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>Father's Name</td>
+                <td>:  <input type="text"  formControlName="fathername"  required style="width: 80%"></td>
+               <td></td>
+                <td>State</td>
+                <td>:  <input type="text"  formControlName="state" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>:  <input type="radio" formControlName="gender"   value="Male">Male
+                       <input type="radio" formControlName="gender"   value="Female">Female
+                </td>
+                  <td></td>
+               <td>Nationality</td>
+                <td>:  <input type="text"  formControlName="nationality" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>:  <input type="date"  formControlName="dob" required style="width: 80%"></td>
+        <td></td>
+          <td>Country</td>
+                <td>:  <input type="text" formControlName="country" required style="width: 80%"></td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number
+                </td>
+                <td>:  <input type="tel"  formControlName="phonenumber" required style="width: 80%"></td>
+              <td></td>
+               <td>parent's Number</td>
+              <td>:  <input type="tel" formControlName="parentphonenumber" required style="width: 80%"></td>
+            </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+            <td>E-mail</td>
+            <td>:  <input type="email"  formControlName="email" required style="width: 80%"></td>
+        </tr>
+    </table>
+<br>
+<div class="Button">
+    <pre>
+        <input type="submit"   value="Save" (click)="saveChanges()">      <input type="reset" Value="Reset">
+    </pre>
+</div>
+</form>
+</div>
+</div>
+</body>

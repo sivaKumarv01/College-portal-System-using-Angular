@@ -1,0 +1,81 @@
+<div class="container" >
+  <form [formGroup]="paymentForm" (ngSubmit)="onPay()">
+  <table *ngFor="let details of userDetails">
+    <tr>
+      <td> <h3>Student Details</h3></td>
+
+      <td>  <h3>Payment</h3></td>
+    </tr>
+    <tr>
+    <td>
+      <label for="name"><i class="fa fa-user"></i> Student Name</label>
+      <p><b>{{details.username}}</b></p></td>
+    <td> <label for="fname">Accepted Cards</label>
+      <div class="icon-container">
+        <i class="fa fa-cc-visa" style="color:navy;"></i>
+        <i class="fa fa-cc-amex" style="color:blue;"></i>
+        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+        <i class="fa fa-cc-discover" style="color:orange;"></i>
+      </div></td>
+  </tr>
+  <tr>
+    <td> <label for="adr"><i class="fa fa-id-badge"></i> Roll Number</label>
+      <p><b>{{details.rollnumber}}</b></p>
+   </td>
+  <td> <label for="cname">Name on Card</label>
+    <input type="text"  name="cardname" formControlName="cardHolderName" placeholder="John More Doe">
+    <div *ngIf="paymentForm.controls.cardHolderName.touched && paymentForm.controls.cardHolderName.errors">
+      <small *ngIf="paymentForm.controls.cardHolderName.errors.required">*Name on Card is required.</small>
+      <small *ngIf="paymentForm.controls.cardHolderName.errors.pattern">*Name must be uppercase. </small>
+    </div>
+</td>
+</tr>
+<tr>
+ <td> <label for="email"><i class="fa fa-envelope"></i> Email</label>
+  <p><b>{{details.email}}</b></p></td>
+  <td><label for="ccnum">Credit card number</label>
+    <input type="number"  name="cardnumber" formControlName="cardNumber"placeholder="1111-2222-3333-4444">
+    <div *ngIf="paymentForm.controls.cardNumber.touched && paymentForm.controls.cardNumber.errors">
+      <small *ngIf="paymentForm.controls.cardNumber.errors.required">*Card Number is required.</small>
+      <small *ngIf="paymentForm.controls.cardNumber.errors.pattern">*Cardnumber must be 16 digits.</small>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td *ngIf="pay"> <label for="examfee"><i class="fa fa-inr"></i>Exam fee</label>
+    <p><b>{{details.examfee}}</b></p>
+</td>
+<td *ngIf="!pay"><label for="collegefee"><i class="fa fa-inr"></i> Enter Payment Amount</label>
+<input type="number" formControlName="collegeFee" style="margin-left: 2%;">
+</td>
+  <td>  <label for="cvv">CVV</label>
+    <input type="number" id="cvv" name="cvv" formControlName="cvv" placeholder="352">
+    <div *ngIf="paymentForm.controls.cvv.touched &&paymentForm.controls.cvv.errors">
+      <small *ngIf="paymentForm.controls.cvv.errors.required">*CVV is required.</small>
+      <small *ngIf="paymentForm.controls.cvv.errors.pattern">*CVV must be 3 digits.</small>
+
+    </div>
+</td>
+</tr>
+<tr>
+  <td>  <label for="expmonth">Exp Month</label>
+    <select formControlName="expMonth" style="margin-left: 2%;">
+      <option *ngFor="let m of month" [value]="m">{{m}}</option></select>
+    <div *ngIf="paymentForm.controls.expMonth.touched && paymentForm.controls.expMonth.errors">
+      <div *ngIf="paymentForm.controls.expMonth.errors.required">*Expiration Month is required.</div>
+            </div></td>
+  <td>   <label for="expyear">Exp Year</label>
+    <input type="number"  name="expyear" placeholder="2018" formControlName="expYear"  max="2060" >
+    <div *ngIf="paymentForm.controls.expYear.touched && paymentForm.controls.expYear.errors">
+      <div *ngIf="paymentForm.controls.expYear.errors.required">*Expiration Year is required.</div>
+      <div *ngIf="paymentForm.controls.expYear.errors.pattern">*Enter a valid 4-digit year.</div>
+    </div></td>
+</tr>
+  </table>
+  <input type="submit"  [disabled]="!paymentForm.valid"   value="click to pay" class="btn">
+</form>
+</div>
+<div class="loading-overlay" *ngIf="!payment">
+  <i class="fa fa-spinner fa-spin"></i>
+</div>
+

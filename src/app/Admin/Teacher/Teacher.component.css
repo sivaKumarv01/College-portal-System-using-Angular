@@ -1,0 +1,189 @@
+*{
+  font-family: 'Poppins', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s linear;
+}
+.btn[disabled]{
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.container{
+      padding:20px 11%;
+  padding-bottom: 110px;
+
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+
+.container .heading{
+  text-align: center;
+  padding-bottom: 15px;
+  color:#fff;
+  text-shadow: 0 5px 10px rgba(0,0,0,.2);
+  font-size: 50px;
+}
+
+.container .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap:15px;
+}
+
+.container .box-container .box{
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  padding:30px 20px;
+}
+
+.container .box-container .box h3{
+  color:#444;
+  font-size: 22px;
+  padding:10px 0;
+}
+
+.container .box-container .box p{
+  color:#777;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-left: 4%;
+}
+
+.container .box-container .box .btn{
+  margin-top: 10px;
+  display: inline-block;
+  background:#3d4541;
+  color:#fff;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 8px 25px;
+}
+
+.container .box-container .box .btn:hover{
+  letter-spacing: 1px;
+}
+
+.container .box-container .box:hover{
+  box-shadow: 0 10px 15px rgba(0,0,0,.3);
+  transform: scale(1.03);
+}
+
+@media (max-width:768px){
+  .container{
+      padding:20px;
+  }
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], input[type=password],input[type="tel"],select {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+button {
+background-color: #44AC44;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 30%;
+opacity: 0.9;
+text-align: center;
+}
+div small {
+  color: red;
+}
+button:hover {
+opacity:1;
+}
+.cancelbtn {
+padding: 14px 20px;
+background-color: #f44336;
+}
+.container {
+padding: 16px;
+}
+.modal {
+display: inline-block;
+z-index: 1;
+width: 100%;
+height: 100%;
+}
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto 15% auto;
+border: 1px solid #888;
+width: 80%;
+}
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+.close {
+position: absolute;
+right: 35px;
+top: 15px;
+font-size: 40px;
+font-weight: bold;
+color: #f1f1f1;
+}
+.close:hover,
+.close:focus {
+color: #f44336;
+cursor: pointer;
+}
+.clearfix::after {
+content: "";
+clear: both;
+display: table;
+}
+table,td,th{
+  padding: 10px;
+
+}
+th,td{
+ border: 1px solid black;
+
+}
+th{
+  background-color: #44AC44;
+  color: white;
+}
+td
+{
+  text-align: center;
+}
+table{
+  border-collapse: collapse;
+  margin:auto ;
+  margin-left: 2%;
+
+}
+.StudentDetails{
+  text-align: center;
+  font-size: 16px ;
+  font-family:  'Times New Roman', serif;
+}
+.container{
+  margin-top: 5%;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+

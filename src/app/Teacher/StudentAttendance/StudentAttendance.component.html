@@ -1,0 +1,57 @@
+<div>
+  <button (click)="createAttendance()">Create a Attendance</button>
+  <div class="search-bar">
+    <pre>
+    <i class="fa fa-search"></i><input type="text" [(ngModel)]="searchText" placeholder="Search By Student's Name"  />       <select [(ngModel)]="selectedSortOption">
+      <option value="name">Name</option>
+      <option value="department">Department</option>
+      <option value="attendance">Attendance Percentage</option>
+    </select>
+  </pre>
+  </div>
+</div>
+<div class="row">
+<div class="column">
+<table >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roll Number</th>
+      <th>Course</th>
+      <th>Attendance</th>
+      <th>Show Attendance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of filteredStudents">
+      <td>{{ student.username }}</td>
+      <td>{{student.rollnumber}}</td>
+      <td>{{ student.department }}</td>
+      <td>{{student.AttendancePercentage}}</td>
+      <td><button (click)="showAttendanceHistory(student.userid)">show Attendance</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="column">
+  <div *ngIf="view">
+  <table style="width: 50%;">
+    <thead>
+      <tr><td>Date</td>
+        <td>Status</td></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let details of history">
+        <td>{{details.date}}</td>
+        <td>{{details.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
+
+
+

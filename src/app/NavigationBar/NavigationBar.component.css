@@ -1,0 +1,74 @@
+.sidebar {
+  position: fixed;
+  margin-top: 30px;
+  margin-left: -0.66%;
+  width: 195px;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: white;
+  overflow-y: auto;
+  border: 1px solid black;
+  text-align: justify;
+}
+
+.fa-home,
+.fa-book,
+.fa-key,
+.fa-user,
+.fa-users,
+.fa-id-card,
+.fa-file,
+.fa-money {
+  font-size: 24px;
+}
+
+.menu {
+  padding: 15px;
+  margin: -8%;
+  list-style: none;
+}
+
+.menu li {
+  border-bottom: 1px solid black;
+  width: 196px;
+
+}
+
+.menu a {
+  display: block;
+  padding: 13px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:active {
+  background-color: #44AC33;
+}
+
+.content {
+  margin-left: 14.8%;
+  overflow: hidden;
+  margin-right: -0.65%;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: static;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    border: none;
+    text-align: left;
+  }
+
+  .menu li {
+    border-bottom: none;
+    width: 100%;
+  }
+
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

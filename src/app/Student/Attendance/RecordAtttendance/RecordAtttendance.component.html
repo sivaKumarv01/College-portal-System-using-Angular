@@ -1,0 +1,20 @@
+
+<body>
+  <h1>Attendance Form</h1>
+
+  <form method="get">
+    <label for="present" *ngIf="present">
+      <input type="radio"   name="status" [(ngModel)]="status" value="Present">
+      Present
+    </label><br>
+    <label for="absent">
+      <input type="radio"  name="status" [(ngModel)]="status" value="Absent">
+      Absent
+    </label><br>
+    <label for="excuse">
+      <input type="radio"   name="status" [(ngModel)]="status" value="Excuse">
+      Excuse
+    </label><br>
+    <input type="submit" (click)="submit()">
+  </form>
+</body>

@@ -1,0 +1,57 @@
+<body>
+  <div class="container">
+    <div class="box-container">
+
+        <div class="box">
+
+            <h3>Transaction Details</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+           <button (click)="transaction()">View</button>
+        </div>
+
+        <div class="box">
+
+            <h3>Update Fee</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <button (click)="update()" >Add</button>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="transactionView">
+<app-TransactionDetails></app-TransactionDetails>
+  </div>
+<div *ngIf="feeUpdateView">
+  <form [formGroup]="fee">
+  <table>
+    <tr>
+      <th>Course</th>
+      <th>College Fee</th>
+      <th>Exam Fee</th>
+      <th>Year</th>
+      <th *ngIf="activebutton">Save</th>
+    </tr>
+    <tr *ngFor="let details of feeDetails">
+      <td>{{details.course}}</td>
+      <td *ngIf="!college">{{details.collegefee}}</td>
+      <td *ngIf="college"><input type="number" formControlName="collegefee"></td>
+      <td *ngIf="!view">{{details.examfee}}</td>
+      <td *ngIf="view"><input type="number" formControlName="examfee"></td>
+      <td><select formControlName="year">
+        <option value="1st-year">1st- year</option>
+        <option value="2nd-year">2nd- year</option>
+        <option value="3rd-year">3rd- year</option>
+        <option value="4th-year">4th- year</option>
+      </select></td>
+      <td *ngIf="activebutton"><button (click)="save(details.id)">Save</button></td>
+    </tr>
+  </table>
+  <div class="btn">
+    <pre>
+  <button (click)="editCollegeFee()">Edit college Fee</button>             <button (click)="editExamfee()">Edit Exam Fee</button>
+
+</pre>
+</div>
+</form>
+</div>
+
+</body>

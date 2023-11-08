@@ -1,0 +1,41 @@
+<div class="contain">
+  <h1 style="font-size:45px;color:green;">Our Principles</h1>
+  <h1>Learn Without Limits</h1>
+  <p>
+  Start, switch, or advance your career with more than 5,000 courses, Professional Certificates, and degrees from world-class universities and companies.</p>
+
+  <h1>Experience limitless learning</h1>
+  <p>
+  Enjoy thousands of online short courses from top universities and brands with an Unlimited subscription. Earn CV-ready certificates and build next-level career skills. With no limits, where will you go?</p>
+
+  <h1>Flexible learning</h1>
+  <p>Join as many courses as you like, learning when and where it suits you. It’s what we call learn-life balance!</p>
+
+  <h1>Limitless access</h1>
+  <p>Earn a digital Certificate of Achievement on every course you complete, and refresh your memory at any time by looking back at the course content. What’s more, you can access your completed courses even if you cancel your subscription.</p>
+
+  <h1>Endless possibilities</h1>
+  <p>Find a new passion, rekindle an old one, progress further in your career, or fast track your professional development... it’s up to you.</p>
+    <h1>Avaliable courses</h1>
+    <div class="course-container" >
+      <div class="course">
+      <div *ngFor="let course of courseDetails">
+      <div class="card">
+        <div class="img">
+        <img  src="{{course.image}}" alt="Course Image">
+        </div>
+        <h2>{{course.coursename}}</h2>
+        <p>{{course.courseDescription}}</p>
+      </div>
+    </div>
+  </div>
+    </div>
+  <h1 style="font-size:45px;color:green;"><b>Popular Technologies</b></h1>
+  <h2><b>-> C Programming</b></h2>
+  <h2><b>-> Python</b></h2>
+  <h2><b>-> Java</b></h2>
+  <h2><b>-> MySql</b></h2>
+  <h2><b>-> Angular</b></h2>
+  <h2><b>-> Machine learning</b></h2>
+  </div>
+

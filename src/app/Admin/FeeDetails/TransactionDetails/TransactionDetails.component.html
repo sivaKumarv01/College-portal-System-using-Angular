@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>S.No</th>
+  <th>Student Name</th>
+  <th>RollNumber</th>
+  <th>Payment Detils</th>
+</tr>
+<tr *ngFor="let details of paymentDetails let i=index">
+  <td>{{i+1}}</td>
+  <td>{{details.StudentName}}</td>
+  <td>{{details.rollnumber}}</td>
+  <td >
+    <pre>
+    Name on Card:{{details.payment?.cardHolderName}}
+    Card Number:{{details.payment?.cardNumber}}
+    Cvv:{{details.payment?.cvv}}
+    Exp.Year:{{details.payment?.expYear}}
+    Exp.Month:{{details.payment?.expMonth}}
+  </pre>
+  </td>
+</tr>
+</table>

@@ -1,0 +1,102 @@
+
+.contain{
+  overflow-x: hidden;
+  margin-left: 2%;
+}
+h2{
+color:black;
+margin-left:10%;
+}
+h1{
+font-size:20px;
+}
+.course{
+  display:flex;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  flex: 0 0 auto ;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+}
+.card{
+  height: 400px;
+  width :250px;
+  background:#f5f5f5;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+  border-radius:5px;
+  padding:5px ;
+  margin-bottom:20px;
+  margin-right: 50px;
+
+}
+.card img{
+  height :200px;
+  width:85%;
+  margin-left: 6%;
+}
+.card h2{
+  margin-left: -4%;
+  text-align: center;
+}
+.card p{
+  text-align: justify;
+}
+
+.description{
+  padding: 5px 0px;
+  margin-top: -5%;
+}
+.title{
+  font-weight:900;
+  font-size:15px;
+  color:#424144;
+
+}
+
+  .card .btn{
+  font-size:13px;
+  color:#44AC33;
+  padding:10px 18px;
+  width: 70px;
+  font-weight:800;
+  border:1px solid black;
+  border-radius:20px;
+  background-color: #44AC33;
+
+}
+.card .btn:hover{
+  cursor:pointer;
+  background-color: #38e11e;
+  color:white;
+}
+.card a{
+  text-decoration: none;
+  color:black;
+}
+.card a:hover{
+  color:black;
+
+}
+@media screen and (max-width: 768px) {
+  .contain {
+    margin-left: 0;
+    padding: 0 16px;
+  }
+
+  .course {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+}

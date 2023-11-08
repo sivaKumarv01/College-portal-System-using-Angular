@@ -1,0 +1,21 @@
+<body>
+  <div class="course-container" >
+    <h2 style="color: white;">Enroll Courses:</h2>
+    <br>
+    <div class="course">
+    <div *ngFor="let course of userCourse">
+    <div class="card">
+      <div class="img">
+      <img  src="{{course.image}}" alt="Course Image">
+      </div>
+      <h2>{{course.coursename}}</h2>
+      <p>{{course.courseDescription}}</p>
+    <div class="btn">
+      <a [routerLink]="course.link" class="enroll-button">open</a>
+    </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  </body>
+

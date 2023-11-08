@@ -1,0 +1,64 @@
+
+.container {
+  margin: 0 auto;
+  margin-top: 3%;
+  width: 100%;
+
+}
+body{
+  background-image: url('/assets/images/PictureOfProfile.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: hidden;
+  width: 100%;
+  height: 92vh;
+  margin-top: 2%;
+}
+h2{
+  background-color: #44AC44;
+  padding: 10px;
+}
+tr,td
+{
+  padding: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
+  width: 90%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+.Button input[type="submit"]:hover,
+.Button input[type="reset"]:hover {
+  background-color: #44AC44
+}
+.Button {
+  margin-top: 20px;
+  text-align: center;
+}
+.Button input[type="submit"],
+.Button input[type="reset"] {
+  padding: 10px 20px;
+  background-color: #44AC44;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+.Button{
+  margin-left: 30%;
+}

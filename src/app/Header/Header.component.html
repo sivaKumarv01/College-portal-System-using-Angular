@@ -1,0 +1,13 @@
+<header>
+  <div class="college-name"><i class="fa fa-university"></i>&nbsp;Sakthi College </div>
+  <div class="qoute"><marquee>{{quote}}</marquee></div>
+  <div class="user">
+     <span *ngIf="LoggedIn==='true'" class="name" (click)="toggleDropdown()"><i class="fa fa-user" style="font-size: 24px;"></i>
+      &nbsp; {{currentUsername}}</span>
+      <a *ngIf="!LoggedIn" routerLink="login"  class="user" ><i class="fa fa-sign-in" ></i>&nbsp;Login as </a>
+    <ul class="dropdown" [ngClass]="{'show': showDropdown}">
+
+      <li><a (click)="logout()"><i class="fa fa-sign-out"></i>&nbsp; Logout</a></li>
+    </ul>
+  </div>
+</header>

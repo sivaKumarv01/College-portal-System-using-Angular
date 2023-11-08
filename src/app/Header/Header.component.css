@@ -1,0 +1,102 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #44AC33;
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fa.fa-sign-in {
+  text-decoration: none;
+}
+
+.user span .fa.fa-user {
+  font-size: 18px;
+}
+
+.college-name {
+  font-size: 18px;
+}
+
+.quote {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.user {
+  position: relative;
+  color: white;
+}
+
+.name {
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  width: 180%;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.dropdown li {
+  padding: 5px 10px;
+}
+
+.dropdown li a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #44AC33;
+}
+
+.show {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+  }
+
+  .user {
+    margin-top: 8px;
+  }
+
+  .quote {
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dropdown {
+    position: static;
+    width: auto;
+    margin-top: 8px;
+    border: none;
+  }
+
+  .dropdown li {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}

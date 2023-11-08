@@ -1,0 +1,76 @@
+<body>
+
+  <div class="container">
+    <div class="header">
+      Leave Details
+    </div>
+    <div class="form">
+      <form   [formGroup]="leaveForm" >
+        <table>
+          <tr>
+          <td>Date</td>
+          <td>:</td>
+          <td>{{todayDate |date:'dd/MM/YYY'}}
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+            <td>Select Department</td>
+            <td>:</td>
+            <td><select formControlName="department">
+              <option *ngFor="let department of course" [value]="department">{{department}}</option></select></td>
+              <td>Select Leave</td>
+              <td>:</td>
+              <td><select formControlName="leaveType" >
+                <option *ngFor="let leaveType of leaveTypes" [value]="leaveType" >{{leaveType}}</option></select></td>
+          </tr>
+          <tr>
+            <td>Start Date</td>
+            <td>:</td>
+            <td><input type="date" name="startDate" formControlName="startDate" (ngModelChange)="calculateDays()"></td>
+            <td>End Date</td>
+            <td>:</td>
+            <td><input type="date" name="endDate" formControlName="endDate" (ngModelChange)="calculateDays()"></td>
+          </tr>
+          <tr>
+            <td>Reason for leave</td>
+            <td>:</td>
+            <td colspan="4"><input type="text" name="reason" formControlName="reason"></td>
+          </tr>
+          <tr>
+            <td>Number Of days Leave</td>
+            <td>:</td>
+            <td colspan="4"><input type="number" name="leaveDays" [(ngModel)]="leaveDays" formControlName="leaveDays" ></td>
+          </tr>
+
+    </table>
+    <input type="hidden" name="userId" [value]="userid" formControlName="userId">
+    <pre>
+    <button (click)="onSubmit()" type="submit">Apply</button>             <button type="reset">Cancel</button>
+  </pre>
+      </form>
+    </div>
+    <div class="footer">
+    </div>
+  </div>
+  <div class="container1">
+    <h3>Applied Leave</h3>
+    <div class="details">
+      <table>
+        <th>S.NO</th>
+        <th>Applied Date</th>
+        <th>Number of Days leave</th>
+        <th>Leave Type</th>
+        <th>Reason</th>
+        <tr *ngFor="let leave of leaveDetails ">
+          <td>{{leave.id}}</td>
+          <td>{{leave.AppliedDate}}</td>
+          <td>{{leave.leaveDays}}</td>
+          <td>{{leave.leaveType}}</td>
+          <td>{{leave.reason}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </body>

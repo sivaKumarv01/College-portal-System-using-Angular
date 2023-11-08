@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <h1>Attendance </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Attendance Status</th>
+        <th>Attendance Percentage</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>{{todaydate}}</td>
+      <td><ng-container *ngIf="!markAttendance">
+        <a routerLink="Attendance" >Submit attendance</a>
+      </ng-container>
+      <ng-container *ngIf="markAttendance">
+        <span>{{status}}</span>
+      </ng-container></td>
+      <td>{{percentage |number : '1.2-2'}}</td>
+    </tr>
+    <tr *ngFor="let details of userAttedanceDetails">
+<td>{{details.date}}</td>
+<td>{{details.status}}</td>
+<td>{{details.AttendancePercentage |number : '1.2-2'}}</td>
+    </tr>
+  </table>
+</body>
+</html>

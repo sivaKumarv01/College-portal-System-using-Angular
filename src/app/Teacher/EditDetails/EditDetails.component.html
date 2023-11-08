@@ -1,0 +1,64 @@
+<body>
+
+<div class="container">
+<div class="Edit-container" >
+  <form  [formGroup]="teacherForm">
+          <table>
+              <tr>
+                  <td>Name</td>
+                  <td>:  <input type="text" formControlName="username" placeholder="Eg.Sivakumar V" style="width: 80%" ></td>
+                  <td></td>
+                   <td>Home Address</td>
+                  <td>:  <input type="text" fromControlName="address" placeholder="Eg.DoorNo,Street Name" required style="width: 80%"></td>
+              </tr>
+              <tr>
+                <td>Department</td>
+                <td>:   <input type="text" name="department" formControlName="department" placeholder="Eg.Mechanical Engineering" style="width: 80%"></td>
+                <td></td>
+                 <td>Town/City</td>
+                  <td>:  <input type="text" name="City" formControlName="city" style="width: 80%"></td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>:  <input type="radio" formControlName="gender"   value="Male">Male
+                       <input type="radio" formControlName="gender"   value="Female">Female
+                </td>
+                  <td></td>
+               <td>District</td>
+                <td>:  <input type="text"  formControlName="nationality" required style="width: 80%"></td>
+            </tr>
+              <tr>
+                  <td>Date of Birth</td>
+                  <td>:  <input type="date" name="DOB" formControlName="dob" required style="width: 80%"></td>
+                   <td></td>
+                  <td>State</td>
+                  <td>:  <input type="text" name="State" formControlName="state" placeholder="Eg.Tamilnadu" required style="width: 80%"></td>
+              </tr>
+              <tr>
+                  <td>Nationality</td>
+                  <td>:  <input type="text" name="Nationality" formControlName="nationality" placeholder="Eg.Indian" required style="width: 80%"></td>
+                  <td></td>
+                  <td>Country</td>
+                  <td>:  <input type="text" name="Country" formControlName="country" placeholder="Eg.India" required style="width: 80%"></td>
+              </tr>
+              <tr>
+                  <td>
+                      Phone Number
+                  </td>
+                  <td>:  <input type="tel" name="Phonenumber" formControlName="phonenumber" required style="width: 80%"></td>
+                  <td></td>
+                   <td>E-mail</td>
+              <td>:  <input type="email" name="Email" formControlName="email" required style="width: 80%"></td>
+                </tr>
+      </table>
+  <br>
+  <div class="Button">
+    <pre>
+        <input type="submit"   value="Save" (click)="saveChanges()">      <input type="reset" Value="Reset">
+    </pre>
+</div>
+  </form>
+
+</div>
+</div>
+</body>
